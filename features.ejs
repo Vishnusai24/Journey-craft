@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F&F</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('/image1.png');
+            background-size: cover;
+            background-attachment: fixed;
+            color: #333;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            /* Removed background color to blend with the page */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            color: white; /* Changed text color to white for better contrast */
+        }
+
+        .accordion-item {
+            background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+            border: none; /* Removed borders */
+            margin-bottom: 10px;
+        }
+
+        .accordion-header {
+            background-color: rgba(255, 140, 0, 0.8); /* Warm orange (sunrise color) */
+            color: #fff;
+            border-radius: 5px;
+            padding: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .accordion-header:hover {
+            background-color: rgba(255, 165, 0, 0.9); /* Slightly brighter orange */
+        }
+
+        .accordion-button {
+            background: none; /* Remove default button styling */
+            border: none; /* Remove border */
+            color: inherit; /* Inherit color */
+            font-size: 1.1rem;
+        }
+
+        .accordion-body {
+            background-color: rgba(255, 255, 255, 0.2); /* Slightly transparent background */
+            padding: 10px;
+            border-radius: 5px;
+            color: black; /* Changed text color to white */
+        }
+
+        #feedback {
+            padding: 50px 0;
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+            color: whitesmoke;
+        }
+
+        .feedback-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(255, 140, 0, 0.9); /* Warm orange (sunrise color) */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .feedback-container h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .feedback-container textarea {
+            width: 100%;
+            font-family: 'Arial', sans-serif;
+            height: 150px;
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: none;
+            background-color: #fff;
+            color: #333;
+        }
+
+        .feedback-container button {
+            padding: 10px 20px;
+            background-color: #d2691e; /* Warm brown */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .feedback-container button:hover {
+            background-color: #8b4513; /* Darker warm brown */
+        }
+
+        .ash-color-block {
+            height: 90px;
+            background-color: #8B4513; /* Warm brown */
+            margin-top: 50px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container faq-container">
+    <h2>Frequently Asked Questions (FAQ)</h2>
+    <div class="accordion" id="faqAccordion">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="heading1">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
+                    1. What are the popular tourist destinations in your region?
+                </button>
+            </h2>
+            <div id="collapse1" class="accordion-collapse collapse show" aria-labelledby="heading1" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    Answer: We have a variety of popular destinations, including historical landmarks like the Taj Mahal, natural wonders such as the Himalayas, and cultural experiences like Kerala's backwaters.
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="heading2">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+                    2. Can you customize a tour package according to my preferences?
+                </button>
+            </h2>
+            <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="heading2" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    Answer: Absolutely! We understand that every traveler is unique, so we offer customizable tour packages tailored to your preferences, budget, and interests. Simply let us know your requirements, and we'll create a personalized itinerary for you.
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="heading3">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
+                    3. What is the best time of year to visit [destination]?
+                </button>
+            </h2>
+            <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="heading3" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    Answer: The best time to visit a destination depends on factors such as weather, local festivals, and tourist crowds. We provide detailed information on the climate and seasonal attractions for each destination on our website, helping you choose the ideal time for your trip.
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="heading4">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
+                    4. Can solo travelers join group tours organized by your company?
+                </button>
+            </h2>
+            <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="heading4" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    Answer: Absolutely! Solo travelers are welcome to join our group tours, where they can meet like-minded individuals and explore exciting destinations together. Our group tours offer a fun and social way to travel while enjoying the benefits of group discounts and expert guidance.
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="heading6">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6" aria-expanded="false" aria-controls="collapse6">
+                    5. What should I pack for my trip to [destination]?
+                </button>
+            </h2>
+            <div id="collapse6" class="accordion-collapse collapse" aria-labelledby="heading6" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    Answer: Packing essentials vary depending on the destination and the activities you plan to undertake. We recommend packing comfortable clothing suitable for the local climate, essential toiletries, any necessary medications, travel documents (passport, visas, etc.), and any specific items required for activities such as hiking or beach outings. Our website also provides destination-specific packing guides to help you prepare.
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="heading8">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse8" aria-expanded="false" aria-controls="collapse8">
+                    6. Are there any local customs or cultural practices I should be aware of?
+                </button>
+            </h2>
+            <div id="collapse8" class="accordion-collapse collapse" aria-labelledby="heading8" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    Answer: It's essential to respect local customs and traditions when visiting a new destination. We provide cultural insights and etiquette tips for each destination on our website to help travelers navigate cultural differences respectfully. From appropriate attire to dining etiquette, understanding local customs enhances the travel experience and fosters cultural appreciation.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<section id="feedback">
+    <div class="feedback-container">
+        <h2>Feedback</h2>
+        <textarea placeholder="Enter your feedback"></textarea>
+        <button>Submit</button>
+    </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+</body>
+</html>

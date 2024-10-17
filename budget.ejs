@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Calculator</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            color: #333;
+            overflow-x: hidden;
+        }
+        
+        .background-blur {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-image: url('/image3.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            filter: blur(8px);
+            z-index: -2;
+            background-attachment: fixed;
+        }
+
+        nav {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 15px 0;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #f1f1f1;
+            text-decoration: underline;
+        }
+
+        /* Budget Calculator Section Styles */
+        #budget-calculator {
+            background-color: #333;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            color: #fff;
+            margin-top: 50px;
+        }
+
+        #budget-calculator h2 {
+            color: #fff;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        #budget-calculator .form-label {
+            color: #fff;
+            font-weight: bold;
+        }
+
+        #budget-calculator input,
+        #budget-calculator select {
+            color: #fff;
+            background-color: #555;
+            border: 1px solid #777;
+            border-radius: 5px;
+            padding: 10px;
+            font-size: 1rem;
+            width: 100%;
+        }
+
+        #budget-calculator input::placeholder,
+        #budget-calculator select option {
+            color: #aaa;
+        }
+
+        #budget-calculator input:focus,
+        #budget-calculator select:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        .result {
+            font-size: 1.5rem;
+            margin-top: 20px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .hotel-links {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .hotel-links a {
+            display: block;
+            margin-bottom: 10px;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .hotel-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer Section */
+        footer {
+            background-image: url('/images/footer-background.jpg');
+            background-attachment: fixed;
+            background-size: cover;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.3);
+            z-index: 1;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Blur for the Entire Website -->
+    <div class="background-blur"></div>
+
+    <!-- Navigation Section -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: rgba(0, 0, 0, 0.5);">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">JourneyCraft</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/features">Features</a>
+                    </li>
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Contact
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Phone: (123) 456-7890</a></li>
+                            <li><a class="dropdown-item" href="#">Email: contact@travelwebsite.com</a></li>
+                            <li><a class="dropdown-item" href="#">Address: 123 Travel St, Adventure City, World</a></li>
+                        </ul>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Budget Calculator Section -->
+    <section id="budget-calculator" class="container">
+        <h2>Calculate Your Minimum Budget</h2>
+        <form id="budgetForm">
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="destination" class="form-label">Destination</label>
+                    <input type="text" class="form-control" id="destination" placeholder="Enter your destination" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="fromDate" class="form-label">From Date</label>
+                    <input type="date" class="form-control" id="fromDate" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="toDate" class="form-label">To Date</label>
+                    <input type="date" class="form-control" id="toDate" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="dailyBudget" class="form-label">Daily Budget (INR)</label>
+                    <input type="number" class="form-control" id="dailyBudget" placeholder="Enter daily budget" min="1" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="numberOfPeople" class="form-label">Number of People</label>
+                    <input type="number" class="form-control" id="numberOfPeople" placeholder="Enter number of people" min="1" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="additionalExpenses" class="form-label">Additional Expenses (INR)</label>
+                    <input type="number" class="form-control" id="additionalExpenses" placeholder="Enter additional expenses" min="0" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="accommodationType" class="form-label">Accommodation Type</label>
+                    <select class="form-select" id="accommodationType" required>
+                        <option value="" selected>Choose...</option>
+                        <option value="budget">Budget</option>
+                        <option value="midrange">Midrange</option>
+                        <option value="luxury">Luxury</option>
+                    </select>
+                </div>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Calculate Budget</button>
+            </div>
+        </form>
+        <div id="result" class="result text-center mt-4"></div>
+        <div id="hotelLinks" class="hotel-links text-center mt-4"></div>
+    </section>
+
+    <!-- Footer Section with Parallax Effect -->
+    <footer class="text-center py-3">
+        <p>&copy; 2023 Travel Website. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <!-- JavaScript for Budget Calculation and Hotel Links -->
+    <script>
+        document.getElementById('budgetForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Get form values
+            const fromDate = new Date(document.getElementById('fromDate').value);
+            const toDate = new Date(document.getElementById('toDate').value);
+            const dailyBudget = parseFloat(document.getElementById('dailyBudget').value);
+            const numberOfPeople = parseInt(document.getElementById('numberOfPeople').value, 10);
+            const additionalExpenses = parseFloat(document.getElementById('additionalExpenses').value);
+            const accommodationType = document.getElementById('accommodationType').value;
+
+            // Calculate number of days
+            const timeDifference = toDate - fromDate;
+            const numberOfDays = Math.ceil(timeDifference / (1000 * 60 * 60 * 24));
+
+            // Validate dates
+            if (numberOfDays <= 0) {
+                document.getElementById('result').innerText = 'Please enter valid dates.';
+                return;
+            }
+
+            // Define accommodation cost multipliers
+            const accommodationCostMultipliers = {
+                budget: 0.8,
+                midrange: 1.2,
+                luxury: 2.0
+            };
+
+            // Calculate total cost
+            const dailyAccommodationCost = dailyBudget * (accommodationCostMultipliers[accommodationType] || 1);
+            const totalAccommodationCost = dailyAccommodationCost * numberOfDays;
+            const totalCost = (dailyBudget * numberOfDays * numberOfPeople) + additionalExpenses + totalAccommodationCost;
+
+            // Display result
+            document.getElementById('result').innerText = `Estimated Total Budget: ₹${totalCost.toFixed(2)}`;
+
+            // Generate hotel search links (using placeholder URLs for demonstration)
+            const minBudget = totalCost * 0.5; // Example range: 50% to 100% of total cost
+            const maxBudget = totalCost;
+            const destination = encodeURIComponent(document.getElementById('destination').value);
+
+            const hotelLinks = document.getElementById('hotelLinks');
+            hotelLinks.innerHTML = `
+                <h3>Find Hotels</h3>
+                <a href="https://www.example.com/hotels?destination=${destination}&minPrice=${minBudget}&maxPrice=${maxBudget}" target="_blank">Search Hotels (₹${minBudget.toFixed(2)} - ₹${maxBudget.toFixed(2)})</a>
+            `;
+        });
+    </script>
+</body>
+</html>
